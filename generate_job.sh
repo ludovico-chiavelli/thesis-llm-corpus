@@ -16,4 +16,4 @@
 module load miniconda3
 source activate thesis-llm
 
-srun python generate-llama.py --save /home/u18lc20/sharedscratch/
+srun python generate_llama.py --save /home/u18lc20/sharedscratch/
