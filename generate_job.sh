@@ -13,7 +13,6 @@
 #SBATCH --mail-type=ALL 
 #SBATCH --mail-user=u18lc20@abdn.ac.uk 
 
-module load miniconda3
-source activate thesis-llm
+source /home/u18lc20/pthesis_llm/bin/activate
 
-srun python generate_llama.py --save /home/u18lc20/sharedscratch/
+srun python generate_llama.py
