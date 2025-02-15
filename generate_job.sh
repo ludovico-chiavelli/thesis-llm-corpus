@@ -7,8 +7,8 @@
 #SBATCH --gres=gpu:7
 #SBATCH --partition=gpu
 
-#SBATCH -o slurm.%j.out
-#SBATCH -e slurm.%j.err
+#SBATCH -o slurm-out/slurm.%j.out
+#SBATCH -e slurm-err/slurm.%j.err
 
 #SBATCH --mail-type=ALL 
 #SBATCH --mail-user=u18lc20@abdn.ac.uk 
