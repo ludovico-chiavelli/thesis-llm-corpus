@@ -1,15 +1,26 @@
+import os
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-# Load model and tokenizer (adjust to your specific LLaMA variant)
-model_name = "gpt2"
-device = "cuda" if torch.cuda.is_available() else "cpu"
+
+model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
+
+# Initialize distributed
+rank = int(os.environ["RANK"])
+device = torch.device(f"cuda:{rank}")
+torch.distributed.init_process_group("nccl", device_id=device)
+
+model = AutoModelForCausalLM.from_pretrained(
+    model_name,
+    device_map="auto",
+    torch_dtype=torch.bfloat16,
+    load_in_8bit = True,
+)
 
 tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
 
 def generate_text(prompt, max_length=200):
-    inputs = tokenizer(prompt, return_tensors="pt").to(device)
+    inputs = tokenizer(prompt, return_tensors="pt").input_ids.to(device)
     outputs = model.generate(**inputs, max_length=max_length)
     return tokenizer.decode(outputs[0], skip_special_tokens=True)
 
