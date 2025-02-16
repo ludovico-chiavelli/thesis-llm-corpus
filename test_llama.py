@@ -12,8 +12,10 @@ torch.distributed.init_process_group("nccl", device_id=device)
 
 # Retrieve tensor parallel model
 model = AutoModelForCausalLM.from_pretrained(
-    model_id,
-    tp_plan="auto",
+    'meta-llama/Llama-3.1-8B',                                                                        
+    device_map = 'auto',                                                                      
+    torch_dtype = torch.bfloat16,                                                             
+    load_in_8bit = True,   
 )
 
 # Prepare input tokens
