@@ -5,6 +5,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 model_id = "meta-llama/Meta-Llama-3-8B-Instruct"
 
 # Initialize distributed
+os.environ["LOCAL_RANK"] = os.environ["SLURM_PROCID"]
 rank = int(os.environ["RANK"])
 device = torch.device(f"cuda:{rank}")
 torch.distributed.init_process_group("nccl", device_id=device)
