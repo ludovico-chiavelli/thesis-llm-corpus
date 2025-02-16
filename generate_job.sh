@@ -15,4 +15,4 @@
 
 source /home/u18lc20/pthesis_llm/bin/activate
 
-srun python -m torch.distributed.launch generate_llama.py
+srun python -m torch.distributed.launch test_llama.py
