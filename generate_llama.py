@@ -12,9 +12,7 @@ torch.distributed.init_process_group("nccl", device_id=device)
 
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
-    device_map="auto",
-    torch_dtype=torch.bfloat16,
-    load_in_8bit = True,
+    tp_plan="auto",
 )
 
 tokenizer = AutoTokenizer.from_pretrained(model_name)
