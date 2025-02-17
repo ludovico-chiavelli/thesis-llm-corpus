@@ -15,4 +15,4 @@
 
 source /home/u18lc20/pthesis_llm/bin/activate
 
-srun python3 generate_gpt.py
+srun python generate_gpt.py
