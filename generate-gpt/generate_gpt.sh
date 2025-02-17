@@ -13,7 +13,6 @@
 #SBATCH --mail-type=ALL 
 #SBATCH --mail-user=u18lc20@abdn.ac.uk 
 
-nvidia-smi
 source /home/u18lc20/pthesis_llm/bin/activate
 
 srun python3 generate_gpt.py
