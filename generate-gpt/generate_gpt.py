@@ -16,7 +16,7 @@ def generate_text(prompt, max_length=200):
 
 
 # Read batch of prompts from a file
-with open("prompts.txt", "r") as f:
+with open("../prompts.txt", "r") as f:
     prompts = [line.strip() for line in f.readlines()]
 
 results = [generate_text(prompt) for prompt in prompts]
