@@ -6,7 +6,6 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --gres=gpu:1
 #SBATCH --partition=gpu
-#SBATCH --nodelist=gpu02
 
 #SBATCH -o slurm-out/slurm.%j.out
 #SBATCH -e slurm-err/slurm.%j.err
