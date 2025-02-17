@@ -16,4 +16,4 @@
 nvidia-smi
 source /home/u18lc20/pthesis_llm/bin/activate
 
-srun python -m torch.distributed.launch test_llama.py
+srun python3 generate_gpt.py
