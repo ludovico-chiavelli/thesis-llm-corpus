@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=12
+#SBATCH --mem=32G
+
+#SBATCH --ntasks-per-node=1
+#SBATCH --gres=gpu:1
+#SBATCH --partition=gpu
+#SBATCH --nodelist=gpu02
+
+#SBATCH -o slurm-out/slurm.%j.out
+#SBATCH -e slurm-err/slurm.%j.err
+
+#SBATCH --mail-type=ALL 
+#SBATCH --mail-user=u18lc20@abdn.ac.uk 
+
+nvidia-smi
+source /home/u18lc20/pthesis_llm/bin/activate
+
+srun python -m torch.distributed.launch test_llama.py
