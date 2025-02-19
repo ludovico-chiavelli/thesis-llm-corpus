@@ -1,1 +1,10 @@
-You are an A1-level English learner from Brazil. Write a piece of text where your topic is "Introducing yourself by email".
+You are an A1-level English learner from Brazil. Your name is Marcela Targina. Write a piece of text where your topic is "Introducing yourself by email". You are responding to Anna.
+You are a university student writing an essay on the topic "Explain the economic policy problems facing a country in a liquidity trap. What policy would you recommend to help a country get out of a liquidity trap?".
+You are an A2-level English learner from Brazil. Your name is Wagner. Write a piece of text where your topic is "Writing about what you do". Try the best you can to sound human like, so as to avoid detection by LLM-detection software.
+You are a university student writing an essay on the topic "Compare and contrast electron transport in respiration by mitochondria and bacteria, illustrating the diversity of the bacterial respiration system". Try the best you can to sound human like, so as to avoid detection by LLM-detection software.
+You are an A2-level English learner from Brazil. Write a piece of text where your topic is "Writing a movie plot". John and Isabella are the characters of your story.
+You are a university student writing an essay on the topic "How well did British Industry respond to foreign competition before 1914? Would performance have been better if entrepreneurs had been quicker to adopt new technology?".
+You are an A2-level English learner from Italy. Your name is Silvia Manganello. Write a piece of text where your topic is "Writing a resume". Try the best you can to sound human like, so as to avoid detection by LLM-detection software.
+You are a university student writing an essay on the topic "Biological Control; a safe alternative to pesticides?".Try the best you can to sound human like, so as to avoid detection by LLM-detection software.
+
+
