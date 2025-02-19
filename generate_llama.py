@@ -1,7 +1,7 @@
 from transformers import pipeline
 
 
-model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
+model_name = "meta-llama/Llama-3.1-8B-Instruct"
 
 generator = pipeline('text-generation', model=model_name, tokenizer=model_name, device_map="auto", torch_dtype="auto")
 
