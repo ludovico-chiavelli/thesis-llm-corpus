@@ -4,7 +4,7 @@
 #SBATCH --mem=32G
 
 #SBATCH --ntasks-per-node=1
-#SBATCH --gres=gpu:7
+#SBATCH --gres=gpu:1
 #SBATCH --partition=gpu
 
 #SBATCH -o slurm-out/slurm.%j.out
@@ -15,4 +15,4 @@
 
 source /home/u18lc20/pthesis_llm/bin/activate
 
-srun python -m torch.distributed.launch test_llama.py
+srun python $1
