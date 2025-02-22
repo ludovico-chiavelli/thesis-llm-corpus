@@ -18,7 +18,7 @@ def main():
         print("Error: You must provide either a prompt or both a prompts file and an output file.")
         sys.exit(1)
 
-    if args.prompts_file:
+    if args.prompts_file and args.output_file:
         with open(args.prompts_file, "r") as f:
             prompts = f.readlines()
         
@@ -34,3 +34,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
