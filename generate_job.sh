@@ -15,4 +15,4 @@
 
 source /home/u18lc20/pthesis_llm/bin/activate
 
-srun python $1
+srun huggingface-cli login --token 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 && python $1
