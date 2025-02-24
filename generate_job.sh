@@ -7,12 +7,12 @@
 #SBATCH --gres=gpu:1
 #SBATCH --partition=gpu
 
-#SBATCH -o slurm-out/slurm.%j.out
-#SBATCH -e slurm-err/slurm.%j.err
+#SBATCH -o /home/u18lc20/sharedscratch/slurm-out/slurm.%j.out
+#SBATCH -e /home/u18lc20/sharedscratch/slurm-err/slurm.%j.err
 
 #SBATCH --mail-type=ALL 
 #SBATCH --mail-user=u18lc20@abdn.ac.uk 
 
 source /home/u18lc20/pthesis_llm/bin/activate
 
-srun huggingface-cli login --token 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 && python $1
+srun huggingface-cli login --token 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 && python "$@"
