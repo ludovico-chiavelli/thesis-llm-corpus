@@ -5,7 +5,7 @@ import argparse
 def main():
     parser = argparse.ArgumentParser(description="Generate text using LLM for minicorpus")
     parser.add_argument("--model_name", type=str, required=True, help="Name of the model to use")
-    parser.add_argument("--ouput_csv", type=str, required=True, help="Path to the output CSV file")
+    parser.add_argument("--output_csv", type=str, required=True, help="Path to the output CSV file")
     args = parser.parse_args()
 
     df = pd.read_csv("human_llm_corpus.csv")
