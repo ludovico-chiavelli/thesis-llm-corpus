@@ -5,6 +5,7 @@ import argparse
 def main():
     parser = argparse.ArgumentParser(description="Generate text using LLM for minicorpus")
     parser.add_argument("--model_name", type=str, required=True, help="Name of the model to use")
+    parser.add_argument("--ouput_csv", type=str, required=True, help="Path to the output CSV file")
     args = parser.parse_args()
 
     df = pd.read_csv("human_llm_corpus.csv")
@@ -18,7 +19,7 @@ def main():
         df.loc[index, "LLM_GENERATED_TEXT"] = response[0]['generated_text'][len(prompt):] # Only keep the generated text, not the prompt
     
     # Save dataframe to a new CSV file
-    df.to_csv("human_llm_corpus_with_generated_text.csv", index=False)
+    df.to_csv(args.output_csv, index=False)
 
 
 if __name__ == "__main__":
