@@ -16,7 +16,7 @@ def main():
 
     for index, row in df.head(2).iterrows():
         prompt = row["PROMPT"]
-        response = generator(prompt, max_new_tokens=100, num_return_sequences=1)
+        response = generator(prompt, max_new_tokens=200, num_return_sequences=1)
         print(response)
         df.loc[index, "LLM_NAME"] = args.model_name
         df.loc[index, "LLM_GENERATED_TEXT"] = response[0]['generated_text'][len(prompt):] # Only keep the generated text, not the prompt
