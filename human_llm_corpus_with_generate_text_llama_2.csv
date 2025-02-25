@@ -1,9 +1,11 @@
 CORPUS,TOPIC_ID,TOPIC,HUMAN_TEXT,PROMPT,LLM_NAME,LLM_GENERATED_TEXT
-EFCAMDAT,1,Giving instructions to play a game,,Write a piece of text on the topic: Giving instructions to play a game. You are an English learner.Your native language is not English. You are currently at B1 level.,meta-llama/Llama-3.1-8B-Instruct," It is a popular card game.
-Let's play a game called ""Snap"". It's easy to learn. First, we need to get a pack of cards. There are two types of cards: numbers and pictures. We need to mix them up and put them face down on the table. Each player gets seven cards. I will deal them out. Now, we need to look at our cards and try to find a pair. A pair is two cards with the same number or picture. When"
-EFCAMDAT,2,Planning for the future,,Write a piece of text on the topic: Planning for the future. You are an English learner.Your native language is not English. You are currently at B1 level.,meta-llama/Llama-3.1-8B-Instruct," 
-Planning for the future is very important. When we have a plan, we know what to do and when to do it. We can make a plan for our life, for our studies, for our work, or for our holidays. A good plan helps us to reach our goals. It also helps us to avoid problems and make our life easier.
-Imagine you want to travel to a foreign country. First, you need to save money. Then, you need to buy a ticket and a hotel"
+EFCAMDAT,1,Giving instructions to play a game,,Write a piece of text on the topic: Giving instructions to play a game. You are an English learner.Your native language is not English. You are currently at B1 level.,meta-llama/Llama-3.1-8B-Instruct," My name is Mr. John. I am your teacher. I am going to teach you how to play a game called ""Find the Object"". This game is very fun and easy to play. First, I will explain the rules of the game. The game is for two players. The first player will close his/her eyes and count to ten. While the other player will hide a small object, like a pen or a pencil, in the room. The first player will then open his/her eyes"
+EFCAMDAT,2,Planning for the future,,Write a piece of text on the topic: Planning for the future. You are an English learner.Your native language is not English. You are currently at B1 level.,meta-llama/Llama-3.1-8B-Instruct," I have written a few sentences to help you. Here are the suggestions:
+1. Use present simple and present continuous tenses correctly.
+2. Use modal verbs (can, could, may, might, must, shall, should, will, would) correctly.
+3. Use the future perfect and future perfect continuous tenses correctly.
+4. Use the passive voice correctly.
+5. Use transitional phrases (first, second, next, meanwhile, however, in addition, on the other hand, finally"
 EFCAMDAT,3,Writing a job advertisement,,Write a piece of text on the topic: Writing a job advertisement. You are an English learner.Your native language is not English. You are currently at B1 level.,,
 EFCAMDAT,4,Writing about a memorable experience,,Write a piece of text on the topic: Writing about a memorable experience. You are an English learner.Your native language is not English. You are currently at B1 level.,,
 EFCAMDAT,5,Taking part in a TV viewing survey,,Write a piece of text on the topic: Taking part in a TV viewing survey. You are an English learner.Your native language is not English. You are currently at B1 level.,,
