@@ -10,7 +10,9 @@ def main():
 
     df = pd.read_csv("human_llm_corpus.csv")
 
-    generator = pipeline('text-generation', model=args.model_name, tokenizer=args.model_name, device_map="auto", torch_dtype="auto")
+    generator = pipeline('text-generation', model=args.model_name, tokenizer=args.model_name, device_map="auto", torch_dtype="auto", model_kwargs={"load_in_4bit": True})
+
+    print(f"Generating text using LLM {args.model_name} for the first 10 rows of the minicorpus")
 
     for index, row in df.head(10).iterrows():
         prompt = row["PROMPT"]
