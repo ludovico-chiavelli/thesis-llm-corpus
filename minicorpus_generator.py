@@ -8,7 +8,7 @@ def main():
     parser.add_argument("--output_csv", type=str, required=True, help="Path to the output CSV file")
     args = parser.parse_args()
 
-    df = pd.read_csv("human_llm_corpus.csv")
+    df = pd.read_csv("human_llm_corpus.csv", dtype=str, na_values=[""], keep_default_na=False)
 
     generator = pipeline('text-generation', model=args.model_name, tokenizer=args.model_name, device_map="auto", torch_dtype="auto", model_kwargs={"load_in_4bit": True})
 
