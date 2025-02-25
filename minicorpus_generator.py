@@ -14,7 +14,7 @@ def main():
 
     print(f"Generating text using LLM {args.model_name} for the first 10 rows of the minicorpus")
 
-    for index, row in df.head(10).iterrows():
+    for index, row in df.head(2).iterrows():
         prompt = row["PROMPT"]
         response = generator(prompt, max_new_tokens=100, num_return_sequences=1)
         df.loc[index, "LLM_NAME"] = args.model_name
