@@ -18,7 +18,7 @@ def main():
 
     print(f"Generating text using LLM {args.model_name} for lines {args.start_line} to {args.end_line} of the corpus scaffolding")
 
-    for index, row in df.iterrows():
+    for index, row in df.iloc[args.start_line:args.end_line].iterrows():
         prompt = row["PROMPT"]
         response = generator(prompt, max_new_tokens=200, num_return_sequences=3)
         # print(response)
