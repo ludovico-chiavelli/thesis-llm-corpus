@@ -12,7 +12,7 @@ def main():
     parser.add_argument("--output_csv", type=str, required=False, help="Path to the output CSV file")
     args = parser.parse_args()
 
-    df = pd.read_csv("human_llm_corpus_scaffolding.csv", dtype=str, na_values=[""], keep_default_na=False)
+    df = pd.read_csv("human_llm_fullcorpus_scaff.csv", dtype=str, na_values=[""], keep_default_na=False)
 
     generator = pipeline('text-generation', model=args.model_name, tokenizer=args.model_name, device_map="auto", torch_dtype="auto")
 
