@@ -8,6 +8,7 @@ def main():
     parser.add_argument("--model_name", type=str, required=True, help="Name of the model to use")
     parser.add_argument("--start_line", type=int, required=True, help="Index of the first line to generate text for")
     parser.add_argument("--end_line", type=int, required=True, help="Index of the last line to generate text for")
+    # this is optional. So you can run it with other models, who don't have a folder and filename specified
     parser.add_argument("--output_csv", type=str, required=False, help="Path to the output CSV file")
     args = parser.parse_args()
 
