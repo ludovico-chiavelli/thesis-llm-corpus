@@ -27,12 +27,18 @@ def main():
 
     for index, row in df.iloc[args.start_line:args.end_line].iterrows():
         prompt = row["PROMPT"]
-        response = generator(prompt, max_new_tokens=200, num_return_sequences=3, do_sample=True, top_k=50, temperature=1)
-        # print(response)
-        df.loc[index, "LLM_NAME"] = args.model_name
-        df.loc[index, "LLM_TEXT_1"] = response[0]['generated_text'][len(prompt):] # Only keep the generated text, not the prompt
-        df.loc[index, "LLM_TEXT_2"] = response[1]['generated_text'][len(prompt):] # Only keep the generated text, not the prompt
-        df.loc[index, "LLM_TEXT_3"] = response[2]['generated_text'][len(prompt):] # Only keep the generated text, not the prompt
+        if args.model_name == "meta-llama/Llama-3.1-8B-Instruct":
+            # Due to the large size of the Llama model, we need to generate text sequentially
+            for i in range(3):
+                response = generator(prompt, max_new_tokens=200, num_return_sequences=1, do_sample=True, top_k=50, temperature=1)
+                df.loc[index, f"LLM_TEXT_{i+1}"] = response[0]['generated_text'][len(prompt):]
+        else:
+            response = generator(prompt, max_new_tokens=200, num_return_sequences=3, do_sample=True, top_k=50, temperature=1)
+            # print(response)
+            df.loc[index, "LLM_NAME"] = args.model_name
+            df.loc[index, "LLM_TEXT_1"] = response[0]['generated_text'][len(prompt):] # Only keep the generated text, not the prompt
+            df.loc[index, "LLM_TEXT_2"] = response[1]['generated_text'][len(prompt):] # Only keep the generated text, not the prompt
+            df.loc[index, "LLM_TEXT_3"] = response[2]['generated_text'][len(prompt):] # Only keep the generated text, not the prompt
     
     if args.model_name == "meta-llama/Llama-3.1-8B-Instruct":
         dir_name = "llama-partials"
