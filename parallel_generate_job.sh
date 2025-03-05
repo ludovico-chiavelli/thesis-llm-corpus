@@ -18,6 +18,7 @@ do
     do
         start_line=$(echo $range | cut -d' ' -f1)
         end_line=$(echo $range | cut -d' ' -f2)
-        sbatch generate_job.sh fullcorpus_generator.py ${configs[$key]} --start_line=$start_line --end_line=$end_line
+        job_name="${key}_${start_line}_${end_line}"
+        sbatch --job-name=$job_name generate_job.sh fullcorpus_generator.py ${configs[$key]} --start_line=$start_line --end_line=$end_line
     done
 done
