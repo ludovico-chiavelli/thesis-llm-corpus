@@ -7,8 +7,8 @@ configs["mistral"]="--model_name=mistralai/Mistral-7B-Instruct-v0.3"
 
 # (start_line, end_line) pairs
 ranges=(
-    "0 50" #start inclusive end exclusive
-    "50 100"
+    "100 150" #start inclusive end exclusive
+    "150 200"
 )
 
 # Call generate_job.sh for each config and range
