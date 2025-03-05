@@ -14,7 +14,14 @@ def main():
 
     df = pd.read_csv("human_llm_fullcorpus_scaff.csv", dtype=str, na_values=[""], keep_default_na=False)
 
-    generator = pipeline('text-generation', model=args.model_name, tokenizer=args.model_name, device_map="auto", torch_dtype="auto")
+    generator = pipeline(
+        'text-generation',
+        model=args.model_name,
+        tokenizer=args.model_name,
+        device_map="auto",
+        torch_dtype="auto",
+        model_kwargs={"offload_folder": "offload"}
+    )
 
     print(f"Generating text using LLM {args.model_name} for lines {args.start_line} to {args.end_line} of the corpus scaffolding")
 
