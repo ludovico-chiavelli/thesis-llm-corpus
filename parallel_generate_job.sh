@@ -6,19 +6,12 @@ configs["gemma"]="--model_name=google/gemma-2-9b-it"
 configs["mistral"]="--model_name=mistralai/Mistral-7B-Instruct-v0.3"
 
 # (start_line, end_line) pairs
-ranges=(
-    "100 150" #start inclusive end exclusive
-    "150 200"
-)
+start_line=$1
+end_line=$2
 
 # Call generate_job.sh for each config and range
 for key in "${!configs[@]}" 
 do
-    for range in "${ranges[@]}"
-    do
-        start_line=$(echo $range | cut -d' ' -f1)
-        end_line=$(echo $range | cut -d' ' -f2)
-        job_name="${key}_${start_line}_${end_line}"
-        sbatch --job-name=$job_name generate_job.sh fullcorpus_generator.py ${configs[$key]} --start_line=$start_line --end_line=$end_line
-    done
+    job_name="${key}_${start_line}_${end_line}"
+    sbatch --job-name=$job_name generate_job.sh fullcorpus_generator.py ${configs[$key]} --start_line=$start_line --end_line=$end_line
 done
