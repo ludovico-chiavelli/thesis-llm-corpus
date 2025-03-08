@@ -13,5 +13,5 @@ end_line=$2
 for key in "${!configs[@]}" 
 do
     job_name="${key}_${start_line}_${end_line}"
-    sbatch --job-name=$job_name generate_job.sh fullcorpus_generator.py ${configs[$key]} --start_line=$start_line --end_line=$end_line
+    sbatch --job-name=$job_name generate_job.sh final_corpus_generator.py ${configs[$key]} --start_line=$start_line --end_line=$end_line
 done
