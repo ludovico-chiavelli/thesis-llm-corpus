@@ -26,23 +26,27 @@ def main():
     print(f"Generating text using LLM {args.model_name} for lines {args.start_line} to {args.end_line} of the corpus scaffolding")
 
     for index, row in df.iloc[args.start_line:args.end_line].iterrows():
-        prompt = row["PROMPT"]
-
         # Model name to column name mapping
         mn_to_cn = {
             "meta-llama/Llama-3.1-8B-Instruct": "LLAMA_TEXT",
             "google/gemma-2-9b-it": "GEMMA_TEXT",
             "mistralai/Mistral-7B-Instruct-v0.3": "MISTRAL_TEXT"
         }
-
-        # Check if dataframe row already has generated text for the model
-        column_name = mn_to_cn[args.model_name]
-        if row[column_name] != "":
-            continue  # Skip this row if it already has generated text
+        
+        # Check if the entry already has generated text for the model
+        if row[mn_to_cn[args.model_name]] != "":
+            continue
         else:
-            response = generator(prompt, max_new_tokens=200, num_return_sequences=1, do_sample=True, top_k=50, temperature=1)
-            df.loc[index, column_name] = response[0]['generated_text'][len(prompt):] # Only keep the generated text, not the prompt
+            prompt = row["PROMPT"]
+            # Check if dataframe row already has generated text for the model
+            column_name = mn_to_cn[args.model_name]
+            if row[column_name] != "":
+                continue  # Skip this row if it already has generated text
+            else:
+                response = generator(prompt, max_new_tokens=200, num_return_sequences=1, do_sample=True, top_k=50, temperature=1)
+                df.loc[index, column_name] = response[0]['generated_text'][len(prompt):] # Only keep the generated text, not the prompt
     
+    ################### Save the generated texts to a new CSV file ###################
     full_corpus_dir_prefix = "fc-"
     if args.model_name == "meta-llama/Llama-3.1-8B-Instruct":
         dir_name = f"{full_corpus_dir_prefix}llama-partials"
