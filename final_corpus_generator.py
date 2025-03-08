@@ -40,11 +40,8 @@ def main():
             prompt = row["PROMPT"]
             # Check if dataframe row already has generated text for the model
             column_name = mn_to_cn[args.model_name]
-            if row[column_name] != "":
-                continue  # Skip this row if it already has generated text
-            else:
-                response = generator(prompt, max_new_tokens=200, num_return_sequences=1, do_sample=True, top_k=50, temperature=1)
-                df.loc[index, column_name] = response[0]['generated_text'][len(prompt):] # Only keep the generated text, not the prompt
+            response = generator(prompt, max_new_tokens=200, num_return_sequences=1, do_sample=True, top_k=50, temperature=1)
+            df.loc[index, column_name] = response[0]['generated_text'][len(prompt):] # Only keep the generated text, not the prompt
     
     ################### Save the generated texts to a new CSV file ###################
     full_corpus_dir_prefix = "fc-"
