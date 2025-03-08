@@ -33,15 +33,14 @@ def main():
             "mistralai/Mistral-7B-Instruct-v0.3": "MISTRAL_TEXT"
         }
         
-        # Check if the entry already has generated text for the model
-        if row[mn_to_cn[args.model_name]] != "":
-            continue
-        else:
+        # Check if the entry already has generated text for the model with pandas isna() method
+        if pd.isna(row[mn_to_cn[args.model_name]]):
             prompt = row["PROMPT"]
-            # Check if dataframe row already has generated text for the model
             column_name = mn_to_cn[args.model_name]
             response = generator(prompt, max_new_tokens=200, num_return_sequences=1, do_sample=True, top_k=50, temperature=1)
             df.loc[index, column_name] = response[0]['generated_text'][len(prompt):] # Only keep the generated text, not the prompt
+        else:
+            continue
     
     ################### Save the generated texts to a new CSV file ###################
     full_corpus_dir_prefix = "fc-"
