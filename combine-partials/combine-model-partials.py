@@ -3,9 +3,8 @@
 import pandas as pd
 from pathlib import Path
 
-def combine_model_partials():
+def combine_model_partials(model_name):
     # Select all files from fc-[model_name]-partials folder
-    model_name = "gemma"
     partials_folder = Path(f"../fc-{model_name}-partials")
     files = list(partials_folder.glob("*.csv"))
 
@@ -71,4 +70,6 @@ def combine_into_final():
     final_df.to_csv("final_corpus_uncleaned_unfiltered.csv", index=False)
 
 if __name__ == "__main__":
+    # Model_name can be llama, gemma, or mistral
+    # combine_model_partials(model_name)
     combine_into_final()
