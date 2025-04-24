@@ -27,7 +27,7 @@ mistral_full = mistral_full[mistral_full["LLM_TEXT_1"].notna() & mistral_full["L
 
 # Add llama all partial texts per topic to full corpus if the topic exists in the full corpus. 
 # There's only three texts per topic, you can add up to the amount of human texts that exist already for that topic
-corpus_df = pd.read_csv("/home/nuvolari/GitHub/thesis-llm-corpus/final_corpus_unfiltered_hum_texts.csv", dtype=str, na_values=[""], keep_default_na=False)
+corpus_df = pd.read_csv("final_corpus_unfiltered_hum_texts.csv", dtype=str, na_values=[""], keep_default_na=False)
 
 def add_model_texts_to_full_corpus_entries(model_full_df, model_name):
     # For EFCAMDAT entries, there are min 1 and at most 10 human texts and for each topic we have 3 generated texts
