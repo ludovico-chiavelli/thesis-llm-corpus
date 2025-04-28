@@ -2,19 +2,17 @@ from pathlib import Path
 import pandas as pd
 from tqdm import tqdm
 
-# Concatenate all llama partials
+# Concatenate all model partials
 llama_partial_dataframes = []
 for partial in Path("llama-partials").glob("*.csv"):
     llama_partial_dataframes.append(pd.read_csv(partial))
 llama_full = pd.concat(llama_partial_dataframes)
 
-# Concatenate all gemma partials
 gemma_partial_dataframes = []
 for partial in Path("gemma-partials").glob("*.csv"):
     gemma_partial_dataframes.append(pd.read_csv(partial))
 gemma_full = pd.concat(gemma_partial_dataframes)
 
-# Concatenate all mistral partials
 mistral_partial_dataframes = []
 for partial in Path("mistral-partials").glob("*.csv"):
     mistral_partial_dataframes.append(pd.read_csv(partial))
@@ -45,8 +43,6 @@ def add_model_texts_to_full_corpus_entries(model_full_df, model_name):
                     break
     
             
-
-# Call for each model
 add_model_texts_to_full_corpus_entries(llama_full, "LLAMA")
 add_model_texts_to_full_corpus_entries(gemma_full, "GEMMA")
 add_model_texts_to_full_corpus_entries(mistral_full, "MISTRAL")

@@ -33,7 +33,7 @@ def main():
             "mistralai/Mistral-7B-Instruct-v0.3": "MISTRAL_TEXT"
         }
         
-        # Check if the entry already has generated text for the model with pandas isna() method
+        # Check if the entry already has generated text for the model
         if pd.isna(row[mn_to_cn[args.model_name]]):
             prompt = row["PROMPT"]
             column_name = mn_to_cn[args.model_name]
@@ -47,17 +47,14 @@ def main():
     if args.model_name == "meta-llama/Llama-3.1-8B-Instruct":
         dir_name = f"{full_corpus_dir_prefix}llama-partials"
         file_name = f"fc_llama_partial_{args.start_line}_{args.end_line}.csv"
-        # Save dataframe to a new CSV file
         df.to_csv(f"{dir_name}/{file_name}", index=False)
     elif args.model_name == "google/gemma-2-9b-it":
         dir_name = f"{full_corpus_dir_prefix}gemma-partials"
         file_name = f"fc_gemma_partial_{args.start_line}_{args.end_line}.csv"
-        # Save dataframe to a new CSV file
         df.to_csv(f"{dir_name}/{file_name}", index=False)
     elif args.model_name == "mistralai/Mistral-7B-Instruct-v0.3":
         dir_name = f"{full_corpus_dir_prefix}mistral-partials"
         file_name = f"fc_mistral_partial_{args.start_line}_{args.end_line}.csv"
-        # Save dataframe to a new CSV file
         df.to_csv(f"{dir_name}/{file_name}", index=False)
     elif args.model_name not in ["meta-llama/Llama-3.1-8B-Instruct", "google/gemma-2-9b-it", "mistralai/Mistral-7B-Instruct-v0.3"] and args.output_csv == None:
         print("Error: You must provide an output CSV file for models other than Llama, Gemma, and Mistral.")
