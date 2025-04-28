@@ -12,7 +12,8 @@ Follow the below steps to execute the program:
 Steps:
 1. Clone the repository into `\sharescratch` within your HPC environment
 2. Run `pip install requirements.txt`
-3. Execute the command `sbatch --job-name=[JOB_NAME] generate_job.sh final_corpus_generator.py ${configs[$key]} --start_line=[START_LINE] --end_line=[END_LINE]`
+3. Add your HuggingFace access token to `generate_job.sh`
+4. Execute the command `sbatch --job-name=[JOB_NAME] generate_job.sh final_corpus_generator.py ${configs[$key]} --start_line=[START_LINE] --end_line=[END_LINE]`
 
 The parameters in square brackets mean the following:
 - JOB_NAME: is simply the name you want to give to the job. It will appear in the email notifications you receive from the HPC
